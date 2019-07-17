@@ -10,6 +10,7 @@ django = "*"
 requests = "*"
 django-crispy-forms = "*"
 pillow = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.6"

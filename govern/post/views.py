@@ -8,6 +8,7 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Post
+# from .spam import end
 
 
 def home(request):
@@ -35,7 +36,10 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        # if end(form.instance.content)==1:
         return super().form_valid(form)
+        #else:
+        #    return redirect(request, 'post-create')
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -67,3 +71,10 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 def about(request):
     # return HttpResponse("<h1> ABOUT </h1>")
     return render(request, 'post/about.html')
+
+def spamu():
+    for object in Post.objects.all():
+        print(object.content)
+
+
+spamu()
