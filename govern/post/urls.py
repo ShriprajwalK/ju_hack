@@ -15,4 +15,7 @@ urlpatterns = [
     path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('about/', views.about, name='about'),
+    path('upvote/<int:pk>/', views.upvote, name='upvote'),
+    path('downvote/<int:pk>/', views.downvote, name='downvote'),
+    # path('leaderboard', views.leaderboard, name='leaderboard')
 ]
